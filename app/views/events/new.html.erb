@@ -1,0 +1,15 @@
+<h1>Events#new</h1>
+<%= form_with model: @event do |f| %>
+    <%= f.label :title %>
+    <%= f.text_field :amount %>
+
+    <%= f.label :date %>
+    <%= f.datetime_field :date %>
+
+  
+
+    <!-- <%= f.hidden_field(:user_id, value: "1") %> -->
+    <!-- <input type="hidden" name="event[user_id]" value="1"> -->
+
+    <%= f.submit %>
+<% end %>
