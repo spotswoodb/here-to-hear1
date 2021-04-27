@@ -19,7 +19,7 @@ Rails.application.routes.draw do
     resources :events, only: [:index, :new, :create, :edit, :update]
   end
 
-  resource :users do
-    resources :venues, only: [:index, :new, :create, :edit, :update]
-  end
+  # resource :users do
+  #   resources :venues, only: [:index, :new, :create, :edit, :update]
+  # end
 end
