@@ -1,7 +1,7 @@
 <h1>Login</h1>
 
 
-<%= form_with url: new_session_path do |f| %>
+<%= form_with url: login_path do |f| %>
     <%= f.label :username %>
     <%= f.text_field :username %>
 
@@ -11,5 +11,5 @@
     <!-- <%= f.hidden_field(:user_id, value: "1") %> -->
     <!-- <input type="hidden" name="user[user_id]" value="1"> -->
 
-    <%= f.submit %>
+    <%= f.submit 'Login' %>
 <% end %>

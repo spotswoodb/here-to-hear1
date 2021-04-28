@@ -1,15 +1,19 @@
 Rails.application.routes.draw do
-  root "events#index"
+  root to: "application#welcome"
   
-  get '/login', to: "sessions#login"
-
-  resources :sessions
+  get '/signup', to: 'users#new'
+  post '/signup', to: 'users#create'
+  
+  get '/login', to: 'sessions#new'
+  post '/login', to: 'sessions#create'
+  get '/logout', to: 'sessions#destroy'
+  resources :users
 
   resources :events, only: [:index]
 
   resources :venues, only: [:index]
 
-  resources :users, only: [:show, :new, :create, :edit, :update]
+  
 
   resources :venues do
     resources :events, only: [:index, :show]

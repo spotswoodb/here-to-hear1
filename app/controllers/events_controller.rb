@@ -5,13 +5,15 @@ class EventsController < ApplicationController
 
   def new
       @event = Event.new
+      @user = User.find_by(id: params[:user_id])
   end
 
   def create
-      @event = Event.new(event_params)
+    @user = User.find_by(id: params[:user_id])
+      @event = @user.events.build(event_params)
       if @event.valid?
           @event.save
-          redirect_to event_path(@event)
+          redirect_to user_event_path(@event)
       else
           render :new
       end
