@@ -12,8 +12,12 @@ class SessionsController < ApplicationController
             session[:user_id] = user.id
             redirect_to user_path(user)
         else
-            render :login
+            render :new
         end
+    end
+
+    def omniauth
+        binding.pry
     end
 
     def destroy

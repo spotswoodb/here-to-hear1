@@ -26,6 +26,10 @@ gem 'bootstrap-sass', '~> 3.3.6'
 
 gem 'jquery-rails'
 
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'omniauth-rails_csrf_protection'
+gem 'dotenv-rails'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
