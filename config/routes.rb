@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
-  get '/auth/:provider/callback' => 'sessions#omniauth' 
+  match '/auth/facebook/callback' => 'sessions#omniauth', via: [:get, :post] 
   get '/logout', to: 'sessions#destroy'
   post '/logout', to: 'sessions#destroy'
   resources :users
