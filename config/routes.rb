@@ -6,26 +6,18 @@ Rails.application.routes.draw do
   
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
-  match '/auth/facebook/callback' => 'sessions#omniauth', via: [:get, :post] 
+  get '/auth/facebook/callback' => 'sessions#omniauth' 
   get '/logout', to: 'sessions#destroy'
   post '/logout', to: 'sessions#destroy'
-  resources :users
+
 
   resources :events, only: [:index]
 
-  resources :venues, only: [:index]
-
+  resources :users
   
 
-  resources :venues do
-    resources :events, only: [:index, :show]
+  resources :venues, only: [:index] do
+    resources :events, only: [:index, :show, :new]
   end
 
-  resources :users do
-    resources :events, only: [:index, :new, :create, :edit, :update]
-  end
-
-  # resource :users do
-  #   resources :venues, only: [:index, :new, :create, :edit, :update]
-  # end
 end
