@@ -1,0 +1,13 @@
+<h1>Venues#index</h1>
+
+<br>
+
+<h3><%= pluralize(@venues.count, 'Venue') %></h3>
+<br>
+<h3>Click On A Venue to See Events!</h3>
+
+<ul>
+    <% @venues.each do |v| %>
+        <li><strong><%= link_to v.name, venue_events_path(v, @events) %></strong></li>
+    <% end %>
+</ul>

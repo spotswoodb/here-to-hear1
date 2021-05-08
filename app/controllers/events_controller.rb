@@ -1,26 +1,30 @@
 class EventsController < ApplicationController
   def index
-    @events = Events.all
+    @venue = Venue.find_by_id(params[:venue_id])
+    @events = Event.all
   end
 
   def new
-      @event = Event.new
-      @user = User.find_by(id: params[:user_id])
+
+    @venue = Venue.find_by(id: params[:venue_id])
+    @event = @venue.events.build
+      
   end
 
   def create
-    @user = User.find_by(id: params[:user_id])
-      @event = @user.events.build(event_params)
+    @venue = Venue.find_by(id: params[:venue_id])
+    @event = @venue.events.build(event_params)
+    binding.pry
       if @event.valid?
           @event.save
-          redirect_to user_event_path(@event)
+          redirect_to venue_event_path(@event)
       else
           render :new
       end
   end
 
   def show    
-      @event = Event.find_by_id(params[:id])
+      @event = Event.find_by_id(params[:venue_id])
       if @event.blank?
           redirect_to new_user_path
       end
@@ -49,6 +53,6 @@ class EventsController < ApplicationController
 private
 
     def event_params
-        params.require(:event).permit(:title, :date, :userd_id, :venue_id)
+        params.require(:event).permit(:title, :date, :description, :venue_id, :user_id)
     end
 end

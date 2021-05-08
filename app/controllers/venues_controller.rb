@@ -1,7 +1,7 @@
 class VenuesController < ApplicationController
     
     def index
-        @venues = Venues.all
+        @venues = Venue.all
     end
 
     def new
@@ -15,6 +15,14 @@ class VenuesController < ApplicationController
             redirect_to user_venue_path(@venue)
         else
             render :new
+        end
+    end
+
+    def show
+        @event = Event.find_by_id(params[:id])
+        @venue = Venue.find_by_id(params[:venue_id])
+        if @venue.blank?
+            redirect_to venues_path
         end
     end
 

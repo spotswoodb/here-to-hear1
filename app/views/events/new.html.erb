@@ -1,15 +1,22 @@
 <h1>Events#new</h1>
-<%= form_with model: @event do |f| %>
+<%= form_with model: [@venue, @event] do |f| %>
     <%= f.label :title %>
-    <%= f.text_field :amount %>
-
+    <%= f.text_field :title %>
+    <br>
+    <br>
     <%= f.label :date %>
     <%= f.datetime_field :date %>
+    <br>
+    <br>
+    <%= f.label :description %>
+    <%= f.text_field :description %>
+    <br>
+    <br>
 
-  
+    <%= f.collection_select(:venue_id, Venue.all, :id, :name, prompt: true) %>
 
-    <!-- <%= f.hidden_field(:user_id, value: "1") %> -->
-    <!-- <input type="hidden" name="event[user_id]" value="1"> -->
 
-    <%= f.submit %>
+    <%= f.hidden_field(:user_id, value: current_user.id) %>
+
+    <%= f.submit "Create Event" %>
 <% end %>
