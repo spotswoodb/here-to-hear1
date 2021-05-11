@@ -6,11 +6,13 @@ class VenuesController < ApplicationController
 
     def new
         @venue = Venue.new
+        @venue.events.build
     end
 
     def create
-        @user = User.find_by(id: params[:user_id])
-        @venue = @user.venues.build(veneu_params)
+        # @user = User.find_by(id: params[:user_id])
+        @event = Event.find_by(id: params[:id])
+        @venue = @event.venues.build(veneu_params)
         if @venue.save
             redirect_to user_venue_path(@venue)
         else
@@ -29,6 +31,6 @@ class VenuesController < ApplicationController
 private
 
     def venue_params
-        params.require(:venue).permit(:name, :address, :phone_number)
+        params.require(:venue).permit(:name, :seating)
     end
 end

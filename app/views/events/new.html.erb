@@ -12,9 +12,14 @@
     <%= f.text_field :description %>
     <br>
     <br>
+    <h4>Select Seating</h4>
+        <%= f.collection_select(:venue_id, Venue.all, :id, :seating, prompt: true) %>
 
-    <%= f.collection_select(:venue_id, Venue.all, :id, :name, prompt: true) %>
-
+    <h4>or Describe the event's seating in three words:</h4>
+    <%= f.fields_for :venues do |v| %>
+        <%= v.label :seating %>
+        <%= v.text_field :seating %>
+    <% end %>
 
     <%= f.hidden_field(:user_id, value: current_user.id) %>
 

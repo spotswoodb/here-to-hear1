@@ -1,0 +1,2 @@
+module AlphabeticalVenuesHelper
+end
