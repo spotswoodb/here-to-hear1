@@ -12,7 +12,7 @@ class VenuesController < ApplicationController
     def create
         # @user = User.find_by(id: params[:user_id])
         @event = Event.find_by(id: params[:id])
-        @venue = @event.venues.build(veneu_params)
+        @venue = @event.venues.build(venue_params)
         if @venue.save
             redirect_to user_venue_path(@venue)
         else

@@ -5,8 +5,7 @@
     <li>Username: <%= @user.username %></li>
     <li>Email: <%= @user.email %></li>
 </ul>
-
-<%= link_to "Create New Event", new_user_event_path(@user) %>
+<%= render partial: "buttons" %>
 
 <div>
     <%= button_to 'Logout', logout_path %>

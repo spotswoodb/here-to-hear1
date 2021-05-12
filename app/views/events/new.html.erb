@@ -1,5 +1,8 @@
 <h1>Events#new</h1>
 <%= form_with model: [@venue, @event] do |f| %>
+    <%= f.hidden_field :user_id, value: current_user.id %>
+    <%= f.hidden_field :venue_id, value: @venue.id %>
+    
     <%= f.label :title %>
     <%= f.text_field :title %>
     <br>
@@ -12,16 +15,12 @@
     <%= f.text_field :description %>
     <br>
     <br>
-    <h4>Select Seating</h4>
-        <%= f.collection_select(:venue_id, Venue.all, :id, :seating, prompt: true) %>
 
-    <h4>or Describe the event's seating in three words:</h4>
+    <h4>Describe the event's seating in three words or less:</h4>
     <%= f.fields_for :venues do |v| %>
         <%= v.label :seating %>
         <%= v.text_field :seating %>
     <% end %>
-
-    <%= f.hidden_field(:user_id, value: current_user.id) %>
 
     <%= f.submit "Create Event" %>
 <% end %>
