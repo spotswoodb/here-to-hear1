@@ -12,6 +12,7 @@ class EventsController < ApplicationController
   def create
     @venue = Venue.find_by(id: params[:venue_id])
     @event = @venue.events.build(event_params)
+    byebug
       if @event.valid?
           @event.save
           redirect_to venue_event_path(@venue, @event)
@@ -25,7 +26,7 @@ class EventsController < ApplicationController
       @venue = @event.venue
       if @event.blank?
           redirect_to new_user_path
-      end
+      end  
   end
 
   def edit
