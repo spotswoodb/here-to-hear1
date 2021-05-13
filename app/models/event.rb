@@ -3,14 +3,5 @@ class Event < ApplicationRecord
     belongs_to :venue
     validates :title, presence: true
     validates :date, presence: true
-    validates :description, presence: true
-    
-    # accepts_nested_attributes_for :venue
-
-    def venue_attributes=(venue_attributes)
-    end
-    
+    validates :description, presence: true  
 end
-# if !attribute_hash.empty?
-#     self.venue = Venue.find_or_create_by(attribute_hash)
-# end

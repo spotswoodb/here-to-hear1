@@ -1,10 +1,9 @@
 class EventsController < ApplicationController
   before_action :find_event, :find_venue
   
-    def index
-      @venue = Venue.find_by_id(params[:venue_id])
-      @events = Event.all
-    end
+  def index
+    @events = @venue.events
+  end
 
   def new
     @event = Event.new
@@ -12,8 +11,7 @@ class EventsController < ApplicationController
 
   def create
     @event = @venue.events.build(event_params)
-      if @event.valid?
-          @event.save
+      if @event.save
           redirect_to venue_event_path(@venue, @event)
       else
           render :new
@@ -38,7 +36,6 @@ class EventsController < ApplicationController
   end
   
   def destroy
-      @venue = @event.venue
       @event.destroy
       redirect_to events_path
   end 
