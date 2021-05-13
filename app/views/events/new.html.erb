@@ -16,11 +16,5 @@
     <br>
     <br>
 
-    <h4>Describe the event's seating in three words or less:</h4>
-    <%= f.fields_for :venues do |v| %>
-        <%= v.label :seating %>
-        <%= v.text_field :seating %>
-    <% end %>
-
     <%= f.submit "Create Event" %>
 <% end %>
