@@ -1,12 +1,13 @@
 <h1>Events#index</h1>
 
 
-<h3><%= pluralize(@events.count, "Event(s) to show for #{@venue.name}") %></h3>
+<h3><%= pluralize(event_count(@venue), "Event(s) to show for #{@venue.name}") %></h3>
 <h4>Click on an event for more information: </h4>
 <ul>
     <% @events.each do |e| %>
+        <% if @venue.id == e.venue_id %>
         <li><strong><%= link_to e.title, venue_event_path(e, @venue) %></strong></li>
     <% end %> 
+<% end %>
 </ul>
 
-<%= link_to "Add A New Event to This Venue", new_venue_event_path(@venue) %>

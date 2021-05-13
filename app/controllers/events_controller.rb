@@ -2,8 +2,9 @@ class EventsController < ApplicationController
   before_action :find_event, :find_venue
   
     def index
-    @events = Event.all
-  end
+      @venue = Venue.find_by_id(params[:venue_id])
+      @events = Event.all
+    end
 
   def new
     @event = Event.new
