@@ -1,4 +1,4 @@
-<h1>Venues#index</h1>
+<h1>Venues</h1>
 
 <br>
 
@@ -11,4 +11,8 @@
         <li><strong><%= link_to v.name, venue_events_path(v, @events) %></strong></li>
     <% end %>
 </ul>
+
+<%= render partial: "buttons" %>
+
+
 

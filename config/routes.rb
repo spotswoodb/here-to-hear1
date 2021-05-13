@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root to: "application#welcome"
+  root to: "venues#index"
   
   get '/signup', to: 'users#new'
   post '/signup', to: 'users#create'
@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   get '/auth/facebook/callback' => 'sessions#omniauth' 
+  get 'auth/failure', to: redirect('/')
   get '/logout', to: 'sessions#destroy'
   post '/logout', to: 'sessions#destroy'
   get '/alphabetical_venues', to: 'alphabetical_venues#index'
@@ -17,7 +18,7 @@ Rails.application.routes.draw do
 
   # only create an event associated with a venue
   resources :venues, only: [:index] do
-    resources :events, only: [:index, :show, :create, :new]
+    resources :events, only: [:index, :show, :create, :new, :edit, :destroy]
   end
 
 end
