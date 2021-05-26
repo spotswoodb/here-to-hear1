@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   # root to login page and add button there to 'sign up'
-  root 'venues#index'
+  root 'sessions#new'
   
   get '/profile', to: 'users#profile'
   get '/signup', to: 'users#new'

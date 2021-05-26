@@ -2,7 +2,7 @@ class SessionsController < ApplicationController
     
     def new
         if logged_in?
-            redirect_to root_path
+            redirect_to venues_path
         end
     end
     

@@ -11,16 +11,6 @@ class VenuesController < ApplicationController
     end
 
     def create
-        # @venue = Venue.new(venue_params)
-        # @event = Event.find_by(id: params[:id])
-        # # @venue = @event.venues.build(venue_params)
-        # # binding.pry
-        # if @venue.save
-        #     binding.pry
-        #     redirect_to venue_path(@venue)
-        # else
-        #     render :new
-        # end
         if @event
             @venue = @event.venues.build(venue_params)
         else 
