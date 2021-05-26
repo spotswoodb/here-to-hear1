@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   get '/alphabetical_venues', to: 'alphabetical_venues#index'
 
 
-  resources :users
+  resources :users, only: [:show, :create, :new]
   
 
   # only create an event associated with a venue

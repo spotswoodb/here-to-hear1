@@ -11,7 +11,8 @@
 <% end %>
 </ul>
 
-<%= link_to "Add Event to this Venue", new_venue_event_path(@venue) %>
+<%= button_to "Add Event to this Venue", new_venue_event_path(@venue), method: :get %>
+<br>
 
 
 <%= render partial: "buttons" %>
