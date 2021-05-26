@@ -1,24 +1,36 @@
-# README
+## Hear To Hear
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Overview
 
-Things you may want to cover:
+This is a rails application built for users to create and host events. Users can associate an event to a specific venue and browse a venue's list of events. The app is intended to improve the live music experience.
 
-* Ruby version
+## Configuration
 
-* System dependencies
+This application uses the powers of Ruby on Rails and ActiveRecord.
 
-* Configuration
+## Installation
 
-* Database creation
+Copy and past the following in your terminal: git clone git@github.com:spotswoodb/hear-to-hear1/.git. Continue by typing 'cd hear-to-hear1' to enter the Hear-To-Hear folder.
 
-* Database initialization
+## Contributing
 
-* How to run the test suite
+Follow the link https://github.com/spotswoodb/hear-to-hear1 for any pull requests.
 
-* Services (job queues, cache servers, search engines, etc.)
+## Files
 
-* Deployment instructions
+Hear To Hear follows the conventional MVC model framework. Controllers act as the middle-man between models and views in the application.
 
-* ...
+## License
+
+The app is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
+
+## Credits
+
+This project was made possible by the knowledge gained in the Flatiron School Software Engineering curriculum.
+
+## Contact
+
+Reach out to Ben at spotswoodb@gmail.com with any questions, comments, or concerns!
+
+
+

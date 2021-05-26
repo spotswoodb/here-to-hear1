@@ -1,0 +1,18 @@
+<h1>Venues#new</h1>
+
+<%= form_with model: @venue do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    <br>
+    <br>
+        <%= f.label :seating %>
+    <%= f.text_field :seating %>
+    <br>
+    <br>
+    <%= f.submit "Create Venue" %>
+<% end %>
+<br>
+
+<%= button_to "Venues", venues_path, method: :get %><br>
+
+<%= render partial: "buttons" %>

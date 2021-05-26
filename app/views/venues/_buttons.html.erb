@@ -1,4 +1,7 @@
 <div class="button">
     <%= button_to 'Logout', logout_path %><br>
-    <%= button_to 'Signup!', signup_path %><br>
+    <%= button_to "Create new Venue", new_venue_path, method: :get %><br>
+    <% if current_user %>
+        <%= button_to "Profile",'/profile', method: :get %><br>
+    <% end %>
 </div>
