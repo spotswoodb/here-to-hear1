@@ -1,8 +1,11 @@
 <div class="button">
-    <%= button_to 'Logout', logout_path %><br>
+    
     <%= button_to "Create new Venue", new_venue_path, method: :get %><br>
-    <% if current_user %>
+    <%= button_to 'Alphabetical Venues', '/alphabetical_venues', method: :get%><br>
+    <% if logged_in? %>
         <%= button_to "Profile",'/profile', method: :get %><br>
+        <%= button_to 'Logout', logout_path %><br>
+    <% else %>
+        <%= button_to 'Login', login_path %>
     <% end %>
-    <%= button_to 'Alphabetical Venues', '/alphabetical_venues', method: :get%>
 </div>
